@@ -1,5 +1,12 @@
-const app = require("./app");
+const express = require("express");
+require("dotenv").config();
+const app = express();
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server is running on port ${process.env.PORT}`);
-});
+//import all routes here
+const home = require("./routes/home");
+
+//router middleware
+app.use("/api/v1", home);
+
+//export app js
+module.exports = app;

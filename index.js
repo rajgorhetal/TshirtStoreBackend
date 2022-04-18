@@ -1,7 +1,6 @@
-const express = require("express");
+const app = require("./app");
+require("dotenv").config();
 
-const app = express();
-
-//export app js
-
-module.exports = app;
+app.listen(process.env.PORT, () => {
+  console.log(`Server is running on port:  ${process.env.PORT}`);
+});
